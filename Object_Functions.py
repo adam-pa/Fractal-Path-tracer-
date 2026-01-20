@@ -66,10 +66,11 @@ def Gasket(p0: ti.types.vector(3, float)):
         ])
         p = ti.Vector([p_xyz.x, p_xyz.y, p_xyz.z, p.w])
 
-        scale = 1.7 / max(p_xyz.dot(p_xyz), 1e-6)
+        scale = 1.2 / max(p_xyz.dot(p_xyz), 1e-6)
         p *= scale
 
     F1 = (ti.Vector([p.x, p.z]) / p.w).norm() * 0.25
     F2 = (abs(p.y) * 0.35) / p.w
     return  F2
+
 
