@@ -52,7 +52,6 @@ def v_smoothstep(a: ti.types.vector(3, float), b: ti.types.vector(3, float), t):
 
 @ti.func
 def random_vector(n):
-    # random values for spherical sampling
     u = ti.random()
     v = ti.random()
 
@@ -66,7 +65,6 @@ def random_vector(n):
         z
     ])
 
-    # Align with surface normal
     if n.dot(vec) < 0:
         vec = -vec
 
@@ -82,10 +80,6 @@ def randompoint(power):
 
 
 
-@ti.func
-def hash_3d(v: ti.types.vector(3, ti.f32)):
-    # Semi-random deterministic hash from 3D vector
-    h = ti.sin(v.dot(ti.Vector([12.9898, 78.233, 37.719]))) * 43758.5453
-    return h - ti.floor(h)  # fract -> [0, 1)
+
 
 
