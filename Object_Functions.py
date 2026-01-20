@@ -14,10 +14,6 @@ def SphereSDF(a: ti.types.vector(3, float), P: ti.types.vector(3, float), S:floa
     return (a-P).norm() -S
 
 @ti.func
-def Light(a: ti.types.vector(3, float), P: ti.types.vector(3, float), S:float):
-    return (a-P).norm() -S
-
-@ti.func
 def PlaneSDF(a: ti.types.vector(3, float), Ax: ti.types.vector(3, float), O:float,):
     return a.dot(Ax) + O
 
@@ -34,40 +30,6 @@ def CrossSDF(a: ti.types.vector(3, float), P: ti.types.vector(3, float), S:float
     y = ti.max(ti.abs(a[1] - P[1]),ti.abs(a[2] - P[1]))
     z = ti.max(ti.abs(a[2] - P[2]),ti.abs(a[0] - P[2]))
     return ti.min(x,y,z) - S
-
-@ti.func
-def MandelbulbSDF(p: ti.types.vector(3, float), max_iter: int = 5, bailout: float = 2.0, power: int = 8):
-    z = p
-    dr = 1.0
-    r = 0.0
-    eps = 1e-6  # avoid division by zero
-
-    for i in range(max_iter):
-        r = z.norm()
-        if r > bailout:
-            break
-
-        theta = 0.0
-        phi = 0.0
-        if r > eps:
-            theta = ti.acos(z[2] / r)
-            phi = ti.atan2(z[1], z[0])
-
-        dr = max(dr, eps)
-        dr = r**(power - 1.0) * power * dr + 1.0
-
-        zr = r**power
-        theta *= power
-        phi *= power
-        sin_theta = ti.sin(theta)
-        z = zr * ti.Vector([
-            sin_theta * ti.cos(phi),
-            sin_theta * ti.sin(phi),
-            ti.cos(theta)
-        ]) + p
-
-    r = max(r, eps)
-    return 0.5 * ti.log(r) * r / dr
 
 @ti.func
 def M_S(o: ti.types.vector(3, float), r: int):
@@ -110,3 +72,4 @@ def Gasket(p0: ti.types.vector(3, float)):
     F1 = (ti.Vector([p.x, p.z]) / p.w).norm() * 0.25
     F2 = (abs(p.y) * 0.35) / p.w
     return  F2
+
