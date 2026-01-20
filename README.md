@@ -1,8 +1,10 @@
 # Fractal-Path-tracer-
 Fractal Path-tracer is a python project of mine that I would love develop further. if any one would like to help me, please reach out! (my e-mail: adam.p.art.ble@gmail.com)
 
-few fetures I would like to add:
+few fetures/fixes I would like to add:
 - realistic procedular sky
+- optimize code
+- more material settings
 - more fractals!
   
 ![1](https://github.com/user-attachments/assets/663d76b0-dc13-4a3c-b196-ce58f49ff609)
