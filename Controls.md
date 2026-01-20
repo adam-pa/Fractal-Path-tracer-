@@ -1,1 +1,15 @@
-
+Controls:
+w - forward
+s - backwards 
+a - left
+d - right
+q - down
+e - up
+left arrow - turn left
+right arrow - turn right
+up arrow - look up
+down arrow - look down
+r - render mode
+v - viewport mode
+mouse left - decrease aperture 
+mouse right - increase aperture 
