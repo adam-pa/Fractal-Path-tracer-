@@ -1,5 +1,6 @@
 # Fractal-Path-tracer-
-Fractal Path-tracer is a project of mine that I would love develop further, if any one would like to help me please reach out! (my e-mail: adam.p.art.ble@gmail.com)
+Fractal Path-tracer is a python project of mine that I would love develop further. if any one would like to help me, please reach out! (my e-mail: adam.p.art.ble@gmail.com)
+
 few fetures I would like to add:
 - realistic procedular sky
 - more fractals!
